@@ -8,4 +8,6 @@ func main() {
 	String()
 	fmt.Println()
 	Boolean()
+	fmt.Println()
+	Interface()
 }
