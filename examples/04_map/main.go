@@ -36,6 +36,10 @@ func main() {
 		fmt.Printf("Pretty bad, y isn't exist. So y is '%s' or empty string\n", y)
 	}
 
+	// deleting key and value
+	delete(strMap, "job")
+	fmt.Println(strMap)
+
 	// what if we need another type of value
 	intMap := map[string]int{
 		"age":    24,
