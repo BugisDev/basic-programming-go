@@ -61,6 +61,10 @@ func main() {
 	interfaceParam(nil)
 
 	multipleParamAsSlice("ady", "ganteng")
+
+	funcParam(func() string {
+		return "ady ganteng"
+	})
 }
 
 func sayHi(name string) {
@@ -152,4 +156,8 @@ func multipleParamAsSlice(names ...string) {
 	for _, name := range names {
 		sayHi(name)
 	}
+}
+
+func funcParam(f func() string) {
+	sayHi(f())
 }
