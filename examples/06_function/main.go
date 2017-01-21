@@ -54,6 +54,13 @@ func main() {
 
 	person, _ = pointerParam(&name)
 	fmt.Printf("Name %s\n", person.Name)
+
+	interfaceParam(name)
+	interfaceParam(x)
+	interfaceParam(uint(y))
+	interfaceParam(nil)
+
+	multipleParamAsSlice("ady", "ganteng")
 }
 
 func sayHi(name string) {
@@ -128,4 +135,21 @@ func pointerParamAndDereference(name *string) (person Person, err error) {
 		return person, errors.New("Invalid Name")
 	}
 	return returningStruct(*name)
+}
+
+func interfaceParam(value interface{}) {
+	switch v := value.(type) {
+	case string:
+		fmt.Printf("value is string. value: %s\n", v)
+	case int, uint:
+		fmt.Printf("value is numeric. value: %d\n", v)
+	case nil:
+		fmt.Println("value is nil")
+	}
+}
+
+func multipleParamAsSlice(names ...string) {
+	for _, name := range names {
+		sayHi(name)
+	}
 }
